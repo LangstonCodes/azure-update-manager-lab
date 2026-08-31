@@ -4,6 +4,10 @@ A complete patch-compliance pipeline built with modular Terraform: policy-based 
 
 This is the third and most complex of three connected Azure infrastructure projects — [NTFS File Server](https://github.com/LangstonCodes/azure-ntfs-file-server-lab) (file-level access control), [RBAC](https://github.com/LangstonCodes/azure-rbac-lab) (infrastructure-level access control), and this one (patch compliance). Fully standalone — no dependency on the other two.
 
+![Resource group overview](images/resource-group-overview.png)
+![Key Vault RBAC](images/keyvault-rbac.png)
+![Policy assignment](images/policy-assignment.png)
+
 ## The Problem This Solves
 
 Knowing one server is missing a patch is easy. Knowing which of hundreds of servers are missing which patches, on a consistent schedule, with a report you can hand to an auditor, is the actual operational problem. Azure Update Manager is the cloud-native answer to it — agentless, policy-driven, with both automatic and manual patch workflows.
