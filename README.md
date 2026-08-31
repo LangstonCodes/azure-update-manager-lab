@@ -2,11 +2,30 @@
 
 A complete patch-compliance pipeline built with modular Terraform: policy-based auto-enrollment, a scheduled maintenance window, and live compliance validation across a 3-VM Active Directory domain.
 
+## Repository Structure
+
+```
+azure-update-manager-lab/
+├── backend.tf
+├── versions.tf
+├── variables.tf
+├── main.tf
+├── outputs.tf
+├── terraform.tfvars.example
+├── modules/
+│   ├── networking/main.tf
+│   ├── keyvault/main.tf
+│   ├── compute/main.tf
+│   └── update-manager/main.tf
+└── scripts/
+    └── validate-lab.ps1
+```
+
 This is the third and most complex of three connected Azure infrastructure projects — [NTFS File Server](https://github.com/LangstonCodes/azure-ntfs-file-server-lab) (file-level access control), [RBAC](https://github.com/LangstonCodes/azure-rbac-lab) (infrastructure-level access control), and this one (patch compliance). Fully standalone — no dependency on the other two.
 
-![Resource group overview](images/resource-group-overview.png)
-![Key Vault RBAC](images/keyvault-rbac.png)
-![Policy assignment](images/policy-assignment.png)
+![Resource group overview](docs/screenshots/resource-group-overview.png)
+![Key Vault RBAC](docs/screenshots/keyvault-rbac.png)
+![Policy assignment](docs/screenshots/policy-assignment.png)
 
 ## The Problem This Solves
 
