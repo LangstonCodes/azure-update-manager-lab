@@ -53,6 +53,14 @@ Freshly deployed VMs ship behind on patches, so a working pipeline should flag t
 
 ![Update history](docs/screenshots/04-update-history-installing.png)
 
+**5. All installs succeeded:** DC01 installed 2 of 2, WS01 5 of 5, WS02 5 of 5, with 0 errors reported.
+
+![Update history complete](docs/screenshots/05-update-history-complete.png)
+
+**6. Re-running the validation script now reports ALL PASS**, with 0 critical patches missing on every VM.
+
+![Validation all pass](docs/screenshots/06-validation-all-pass.png)
+
 > **Reproducing the "needs updates" state:** the compute module uses the shared `local.img` image version. A current marketplace image may already be fully patched, so the validation script can report all PASS. To demo missing patches, pin `version` on the WS01/WS02 `source_image_reference` to an older Windows Server 2022 image (list versions with `az vm image list --publisher MicrosoftWindowsServer --offer WindowsServer --sku 2022-datacenter --all`).
 
 ## Architecture
