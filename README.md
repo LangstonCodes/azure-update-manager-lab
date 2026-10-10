@@ -1,6 +1,7 @@
 # Azure Update Manager Lab — Modular Terraform Patch Management Pipeline
 
-▶️ **Watch me build this here!** [VIDEO_LINK_HERE](VIDEO_LINK_HERE)
+▶️ **Watch me build this here!** 
+https://www.loom.com/share/3d39c92bc4f84f12b6a68b7c3beae630
 
 A complete patch-compliance pipeline built with modular Terraform: policy-based auto-enrollment, a scheduled maintenance window, and live compliance validation across a 3-VM Active Directory domain.
 
