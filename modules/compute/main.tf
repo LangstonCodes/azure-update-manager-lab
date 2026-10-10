@@ -119,7 +119,7 @@ resource "azurerm_windows_virtual_machine" "ws01" {
     publisher = local.img.pub
     offer     = local.img.offer
     sku       = local.img.sku
-    version   = "20348.5499.260809"
+    version   = local.img.ver
   }
 }
 
@@ -141,7 +141,7 @@ resource "azurerm_windows_virtual_machine" "ws02" {
     publisher = local.img.pub
     offer     = local.img.offer
     sku       = local.img.sku
-    version   = "20348.5499.260809"
+    version   = local.img.ver
   }
 }
 

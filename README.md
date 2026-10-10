@@ -1,5 +1,7 @@
 # Azure Update Manager Lab — Modular Terraform Patch Management Pipeline
 
+▶️ **Watch me build this here!** [VIDEO_LINK_HERE](VIDEO_LINK_HERE)
+
 A complete patch-compliance pipeline built with modular Terraform: policy-based auto-enrollment, a scheduled maintenance window, and live compliance validation across a 3-VM Active Directory domain.
 
 ## Repository Structure
@@ -30,6 +32,28 @@ This is the third and most complex of three connected Azure infrastructure proje
 ## The Problem This Solves
 
 Knowing one server is missing a patch is easy. Knowing which of hundreds of servers are missing which patches, on a consistent schedule, with a report you can hand to an auditor, is the actual operational problem. Azure Update Manager is the cloud-native answer to it — agentless, policy-driven, with both automatic and manual patch workflows.
+
+## Proof It Works
+
+Freshly deployed VMs ship behind on patches, so a working pipeline should flag them. Here is the lab doing exactly that, then installing the updates.
+
+**1. Azure Update Manager lists all three VMs with pending updates** (DC01: 2, WS01: 4, WS02: 4), each enrolled in the `aum-weekly-patches` schedule with periodic assessment on.
+
+![Update Manager pending updates](docs/screenshots/01-update-manager-pending-updates.png)
+
+**2. The validation script agrees**, reporting missing critical patches on both member servers and exporting `aum-compliance-report.json`.
+
+![Validation script failures](docs/screenshots/02-validation-script-failures.png)
+
+**3. Install one-time updates from the portal** for all three machines.
+
+![Install one-time updates](docs/screenshots/03-install-one-time-updates.png)
+
+**4. Update history** shows the installs running (DC01 completed 2 of 2).
+
+![Update history](docs/screenshots/04-update-history-installing.png)
+
+> **Reproducing the "needs updates" state:** the compute module uses the shared `local.img` image version. A current marketplace image may already be fully patched, so the validation script can report all PASS. To demo missing patches, pin `version` on the WS01/WS02 `source_image_reference` to an older Windows Server 2022 image (list versions with `az vm image list --publisher MicrosoftWindowsServer --offer WindowsServer --sku 2022-datacenter --all`).
 
 ## Architecture
 
