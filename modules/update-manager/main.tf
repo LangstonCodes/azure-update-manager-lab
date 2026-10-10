@@ -22,7 +22,7 @@ resource "azurerm_maintenance_configuration" "weekly" {
   scope                    = "InGuestPatch"
   in_guest_user_patch_mode = "User"
   window {
-    start_date_time = "2026-10-01 02:00"
+    start_date_time = "2026-10-13 02:00"
     time_zone       = "Eastern Standard Time"
     duration        = "03:00"
     recur_every     = "Week"

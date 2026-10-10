@@ -4,5 +4,6 @@ terraform {
     storage_account_name = "tfstatentfslab739191"
     container_name       = "tfstate"
     key                  = "aum-lab.tfstate"
+    use_azuread_auth     = true
   }
 }
